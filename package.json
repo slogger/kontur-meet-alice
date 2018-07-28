@@ -1,0 +1,41 @@
+{
+    "name": "Recipes",
+    "version": "1.0.0",
+    "description": "Web server for recipes database",
+    "main": "index.js",
+    "scripts": {
+        "lint": "eslint src",
+        "test": "jest",
+        "dev": "tsc -w --declaration",
+        "build": "rm -rf dist && tsc --declaration; cp -r ./src/types ./dist/types",
+        "version": "npm run changelog && git add CHANGELOG.md",
+        "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+        "release": "conventional-github-releaser -p angular",
+        "deploy": "tsc && git push --follow-tags origin master && npm publish"
+    },
+    "keywords": [
+        "server",
+        "node",
+        "recipes"
+    ],
+    "authors": [
+        "@fletcherist",
+        "@slggr"
+    ],
+    "license": "UNLICENSED",
+    "dependencies": {
+        "body-parser": "^1.15.2",
+        "dotenv": "^6.0.0",
+        "express": "^4.14.0",
+        "mongodb": "^2.2.8",
+        "mongoose": "^4.5.10",
+        "mongoose-simple-random": "^0.3.3",
+        "yandex-dialogs-sdk": "^1.5.1"
+    },
+    "devDependencies": {
+        "prettier": "^1.13.7",
+        "tslint": "^5.11.0",
+        "typescript": "^2.9.2",
+        "@types/node": "^10.5.4"
+    }
+}
